@@ -10,9 +10,9 @@
             $type = $_POST["type"];
             
             $estimated_annual_salary = 0;
-            if ($nature == "monthly") {
+            if ($type == "monthly") {
                 $estimated_annual_salary = $salary * 12;
-            } elseif ($nature == "bi-monthly") {
+            } elseif ($type == "bi-monthly") {
                 $estimated_annual_salary = $salary * 24;
             }
             
