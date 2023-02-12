@@ -5,8 +5,47 @@
 </head>
 <body>
     <?php
-
-    
+        if (isset($_POST["submit"])) {
+            $salary = floatval($_POST["salary"]);
+            $nature = $_POST["nature"];
+            
+            $estimated_annual_salary = 0;
+            if ($nature == "monthly") {
+                $estimated_annual_salary = $salary * 12;
+            } elseif ($nature == "bi-monthly") {
+                $estimated_annual_salary = $salary * 24;
+            }
+            
+            $tax_rate = 0.3;
+            $year_to_date_tax = $estimated_annual_salary * $tax_rate;
+            $monthly_tax = $year_to_date_tax / 12;
+            ?>
+            <h2>Results</h2>
+            <p>Estimated Annual Salary: ₱<?php echo $estimated_annual_salary; ?></p>
+            <p>Year-to-Date Tax: ₱<?php echo $year_to_date_tax; ?></p>
+            <p>Monthly Tax: ₱<?php echo $monthly_tax; ?></p>
+            <?php
+        } else {
+    ?>
+    <h2>Tax Calculator</h2>
+    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+        <p>
+            <label for="salary">Salary(₱):</label>
+            <input type="text" name="salary" id="salary" required>
+        </p>
+        <p>
+            <label for="nature">Type of Salary:</label>
+            <select name="nature" id="nature" required>
+                <option value="monthly">Monthly</option>
+                <option value="bi-monthly">Bi-monthly</option>
+            </select>
+        </p>
+        <p>
+            <input type="submit" name="submit" value="Submit">
+        </p>
+    </form>
+    <?php
+        }
     ?>
 </body>
 </html>
