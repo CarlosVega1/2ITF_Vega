@@ -16,7 +16,7 @@
                 $estimated_annual_salary = $salary * 24;
             }
             
-            $tax_rate = 0.3;
+            $tax_rate = .3;
             $year_to_date_tax = $estimated_annual_salary * $tax_rate;
             $monthly_tax = $year_to_date_tax / 12;
             ?>
