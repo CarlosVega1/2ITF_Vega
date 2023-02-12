@@ -7,7 +7,7 @@
     <?php
         if (isset($_POST["submit"])) {
             $salary = floatval($_POST["salary"]);
-            $nature = $_POST["nature"];
+            $type = $_POST["type"];
             
             $estimated_annual_salary = 0;
             if ($nature == "monthly") {
@@ -34,8 +34,8 @@
             <input type="text" name="salary" id="salary" required>
         </p>
         <p>
-            <label for="nature">Type of Salary:</label>
-            <select name="nature" id="nature" required>
+            <label for="type">Type of Salary:</label>
+            <select name="type" id="type" required>
                 <option value="monthly">Monthly</option>
                 <option value="bi-monthly">Bi-monthly</option>
             </select>
